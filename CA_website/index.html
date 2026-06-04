@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calmify AI - Premium Mental Health Dashboard & Calendar Companion. Optimize your emotional resilience, sleep, and physical well-being.">
+    <title>Calmify AI | Premium Mental Health Dashboard</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- 0. LANDING & LOGIN / SIGNUP VIEW -->
+    <div class="landing-login-container" id="landingLoginContainer">
+        <!-- Header -->
+        <header class="landing-header">
+            <div class="logo">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <span class="logo-text">Calmify <span class="logo-accent">AI</span></span>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="support-link">Support</a>
+                <button type="button" class="btn-toggle-auth" id="headerAuthToggleBtn">Sign Up</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="landing-main">
+            <!-- Left Info Panel -->
+            <div class="landing-info-panel">
+                <div class="tagline-group">
+                    <span class="tagline-sub">Begin Your</span>
+                    <h1 class="tagline-main">Journey to Stillness</h1>
+                </div>
+                <p class="landing-desc">
+                    Tell us a bit about yourself so we can personalize your sanctuary. Every breath is a step toward mindful clarity.
+                </p>
+                <div class="landing-features">
+                    <div class="feature-item">
+                        <div class="feature-icon green">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Tailored Wellness</h3>
+                            <p>Personalized meditations based on your professional lifestyle.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon gold">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Sustainable Calm</h3>
+                            <p>Evidence-based routines that evolve with your daily rhythm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Card (Sign Up by default) -->
+            <div class="landing-card-panel">
+                <div class="auth-card">
+                    <!-- Background leaf shape overlay -->
+                    <div class="auth-card-watermark">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    
+                    <!-- SIGN UP VIEW -->
+                    <div id="signUpView" class="auth-view active">
+                        <form id="signUpForm" class="auth-form">
+                            <div class="form-row-split">
+                                <div class="input-group">
+                                    <label class="form-label">Full Name</label>
+                                    <div class="form-input-wrapper">
+                                        <i class="fa-solid fa-user input-icon"></i>
+                                        <input type="text" id="signUpName" placeholder="Evelyn Thorne" required>
+                                    </div>
+                                </div>
+                                <div class="input-group age-group">
+                                    <label class="form-label">Age</label>
+                                    <div class="form-input-wrapper">
+                                        <i class="fa-solid fa-calendar-days input-icon"></i>
+                                        <input type="number" id="signUpAge" placeholder="28" required min="1" max="120">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="form-label">Profession</label>
+                                <div class="form-input-wrapper">
+                                    <i class="fa-solid fa-briefcase input-icon"></i>
+                                    <input type="text" id="signUpProfession" placeholder="Creative Director" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="form-label">Contact Number</label>
+                                <div class="form-input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="signUpContact" placeholder="+1 (555) 000-0000" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="form-label">Email Address</label>
+                                <div class="form-input-wrapper">
+                                    <i class="fa-solid fa-envelope input-icon"></i>
+                                    <input type="email" id="signUpEmail" placeholder="evelyn@serenity.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="form-label">Password</label>
+                                <div class="form-input-wrapper">
+                                    <i class="fa-solid fa-lock input-icon"></i>
+                                    <input type="password" id="signUpPassword" placeholder="••••••••" required>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn-enter-sanctuary">
+                                Enter the Sanctuary
+                            </button>
+                        </form>
+                        
+                        <div class="auth-switch-text">
+                            Already part of the sanctuary? <a href="#" id="switchToSignInBtn">Sign In</a>
+                        </div>
+                    </div>
+
+                    <!-- SIGN IN VIEW -->
+                    <div id="signInView" class="auth-view">
+                        <form id="signInForm" class="auth-form">
+                            <div class="input-group">
+                                <label class="form-label">Email Address</label>
+                                <div class="form-input-wrapper">
+                                    <i class="fa-solid fa-envelope input-icon"></i>
+                                    <input type="email" id="signInEmail" placeholder="evelyn@serenity.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="form-label">Password</label>
+                                <div class="form-input-wrapper">
+                                    <i class="fa-solid fa-lock input-icon"></i>
+                                    <input type="password" id="signInPassword" placeholder="••••••••" required>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn-enter-sanctuary">
+                                Enter the Sanctuary
+                            </button>
+                        </form>
+                        
+                        <div class="auth-switch-text">
+                            New to the sanctuary? <a href="#" id="switchToSignUpBtn">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <div class="footer-left">
+                <span class="footer-logo">Calmify AI</span>
+                <span class="footer-copyright">© 2024 Calmify AI. Crafted for Serenity.</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Support</a>
+                <a href="#">About</a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="app-dashboard" id="appDashboard" style="display: none;">
+        <!-- 1. SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo">
+                    <i class="fa-solid fa-leaf logo-icon"></i>
+                    <span class="logo-text">Calmify <span class="logo-accent">AI</span></span>
+                </div>
+                
+                <nav class="sidebar-nav">
+                    <button class="nav-item active" id="navCalendar">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Insights</span>
+                    </button>
+                    <button class="nav-item" id="navRemedy">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <span>Remedy</span>
+                    </button>
+                    <button class="nav-item" id="navAITherapist">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>AI Therapist</span>
+                    </button>
+                    <button class="nav-item" id="navStressGraph">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Stress Graph</span>
+                    </button>
+                </nav>
+            </div>
+            
+            <div class="sidebar-bottom">
+                <button class="nav-item" id="navSettings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </button>
+                <button class="nav-item" id="navSignOut">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sign Out</span>
+                </button>
+                
+                <!-- User Profile Capsule -->
+                <div class="user-profile-capsule" id="profileBtn">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Elena Vance Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <h4 class="user-name">Elena Vance</h4>
+                        <span class="user-status">Premium Member</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 2. MAIN DASHBOARD CONTENT AREA -->
+        <main class="dashboard-main">
+            <!-- TOP BAR HEADER -->
+            <header class="dashboard-header">
+                <div class="search-bar-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search sessions or logs..." class="search-input" id="dashboardSearch">
+                </div>
+                
+                <div class="header-right">
+                    <div class="notification-wrapper">
+                        <i class="fa-regular fa-bell bell-icon"></i>
+                        <span class="notification-badge"></span>
+                    </div>
+                    
+                    <div class="header-date-box">
+                        <span class="header-day-label" id="headerDayLabel">THURSDAY</span>
+                        <span class="header-date-label" id="headerDateLabel">Sept 12, 2024</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 2.1 INSIGHTS DASHBOARD VIEW -->
+            <div id="insightsView">
+                <div class="dashboard-grid">
+                    <!-- LEFT/CENTER MAIN COLUMN (CALENDAR & DAILY REFLECTION) -->
+                    <div class="main-column">
+                        
+                        <!-- Month Select Control Area -->
+                        <div class="calendar-header-nav">
+                            <h2 class="calendar-month-title" id="monthYearDisplay">
+                                <span class="month-name">September</span> <span class="year-name">2024</span>
+                            </h2>
+                            <div class="calendar-nav-buttons">
+                                <button id="prevMonthBtn" class="btn-nav-arrow" aria-label="Previous Month">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <button id="nextMonthBtn" class="btn-nav-arrow" aria-label="Next Month">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Calendar Card -->
+                        <section class="card calendar-card">
+                            <div class="calendar-grid-header">
+                                <span>SUN</span>
+                                <span>MON</span>
+                                <span>TUE</span>
+                                <span>WED</span>
+                                <span>THU</span>
+                                <span>FRI</span>
+                                <span>SAT</span>
+                            </div>
+                            
+                            <!-- Calendar Days Grid (populated dynamically via JS) -->
+                            <div class="calendar-grid" id="calendarGrid"></div>
+
+                            <!-- Mood Legend & Actions -->
+                            <div class="calendar-legend-bar">
+                                <div class="calendar-legend">
+                                    <div class="legend-item" data-mood="relax">
+                                        <span class="legend-dot meditated"></span>
+                                        <span class="legend-label">Meditated</span>
+                                    </div>
+                                    <div class="legend-item" data-mood="extreme">
+                                        <span class="legend-dot stress"></span>
+                                        <span class="legend-label">High Stress</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="view-journal-link" id="viewJournalLink">View Journal Entries</a>
+                            </div>
+                        </section>
+
+                        <!-- Bottom Grid Row (Daily Reflection + Daily Wisdom Card) -->
+                        <div class="bottom-widgets-row">
+                            <!-- Daily Reflection Card -->
+                            <section class="card reflection-card">
+                                <div class="card-header-with-icon">
+                                    <div class="icon-circle">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </div>
+                                    <h3 class="card-title">Daily Reflection</h3>
+                                </div>
+                                <span class="reflection-selected-date">Logging for: <strong id="selectedDateLabel">Select a day</strong></span>
+                                
+                                <div class="reflection-form">
+                                    <div class="input-group">
+                                        <label class="input-header-label">PHYSICAL SYMPTOMS</label>
+                                        <div class="bubble-input-wrapper">
+                                            <input type="text" id="symptomsInput" placeholder="How does your body feel today?" class="bubble-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label class="input-header-label">EVENING NOTES</label>
+                                        <div class="bubble-input-wrapper">
+                                            <textarea id="notesInput" rows="2" placeholder="Reflect on your closing rituals..." class="bubble-textarea"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Compact Sliders for Sleep and HRV input -->
+                                    <div class="reflection-sliders-row">
+                                        <div class="slider-box">
+                                            <div class="slider-header">
+                                                <span class="slider-label">SLEEP QUALITY</span>
+                                                <span class="slider-value-display" id="sleepDisplayValue">6h 40m</span>
+                                            </div>
+                                            <input type="range" id="sleepSlider" min="0" max="720" value="400" step="10" class="mini-slider">
+                                            <div class="progress-bar-bg-mini">
+                                                <div class="progress-bar-fill-mini" id="sleepProgressBar" style="width: 55%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-box">
+                                            <div class="slider-header">
+                                                <span class="slider-label">HEART RATE VAR.</span>
+                                                <span class="slider-value-display" id="hrvDisplayValue">82ms</span>
+                                            </div>
+                                            <input type="range" id="hrvSlider" min="20" max="150" value="82" class="mini-slider">
+                                            <div class="progress-bar-bg-mini">
+                                                <div class="progress-bar-fill-mini hrv" id="hrvProgressBar" style="width: 47%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn-save-log" id="saveLogBtn">
+                                        <i class="fa-solid fa-floppy-disk"></i> Save Daily Log
+                                    </button>
+                                </div>
+                            </section>
+
+                            <!-- Daily Wisdom Card -->
+                            <section class="card wisdom-card" style="background-image: url('images/forest_wisdom.png');">
+                                <div class="wisdom-overlay"></div>
+                                <div class="wisdom-content">
+                                    <span class="wisdom-tag">DAILY WISDOM</span>
+                                    <blockquote class="wisdom-quote">
+                                        "Nature does not hurry, yet everything is accomplished."
+                                    </blockquote>
+                                    <cite class="wisdom-author">Lao Tzu</cite>
+                                </div>
+                            </section>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT SIDEBAR COLUMN (STATS & LIVE SECTOR) -->
+                    <div class="stats-column">
+                        <!-- Monthly Flow Card -->
+                        <section class="card monthly-flow-card">
+                            <h3 class="card-title">Monthly Flow</h3>
+                            
+                            <!-- Resilience Score SVG Ring -->
+                            <div class="resilience-score-container">
+                                <div class="resilience-score-left">
+                                    <span class="resilience-label">RESILIENCE SCORE</span>
+                                    <div class="resilience-score-value">
+                                        <span class="score-number" id="harmonyScore">84</span>
+                                        <span class="score-max">/100</span>
+                                    </div>
+                                </div>
+                                <div class="resilience-ring-box">
+                                    <svg width="70" height="70" class="radial-progress-svg">
+                                        <circle class="ring-bg" cx="35" cy="35" r="28" />
+                                        <circle class="ring-fill" id="radialProgressCircle" cx="35" cy="35" r="28" style="stroke-dashoffset: 40;" />
+                                    </svg>
+                                    <div class="ring-icon-center">
+                                        <i class="fa-solid fa-bolt"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Oval Badges Grid -->
+                            <div class="oval-badges-grid">
+                                <div class="oval-badge">
+                                    <span class="badge-label">SLEEP QUALITY</span>
+                                    <span class="badge-value" id="widgetSleepValue">7h 42m</span>
+                                    <span class="badge-status green"><i class="fa-solid fa-arrow-up"></i> 12% vs last mo</span>
+                                </div>
+                                
+                                <div class="oval-badge">
+                                    <span class="badge-label">AVG HRV</span>
+                                    <span class="badge-value" id="widgetHrvValue">64 ms</span>
+                                    <span class="badge-status gray">Stable</span>
+                                </div>
+                            </div>
+
+                            <!-- Dominant States Progress Bars -->
+                            <div class="dominant-states-section">
+                                <span class="states-title-label">DOMINANT STATES</span>
+                                
+                                <div class="state-row">
+                                    <div class="state-meta">
+                                        <span class="state-name">Focused & Calm</span>
+                                        <span class="state-percentage" id="stateFocusedPct">65%</span>
+                                    </div>
+                                    <div class="state-bar-bg">
+                                        <div class="state-bar-fill green" id="stateFocusedBar" style="width: 65%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="state-row">
+                                    <div class="state-meta">
+                                        <span class="state-name">Mild Anxiety</span>
+                                        <span class="state-percentage" id="stateAnxietyPct">20%</span>
+                                    </div>
+                                    <div class="state-bar-bg">
+                                        <div class="state-bar-fill yellow" id="stateAnxietyBar" style="width: 20%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="state-row">
+                                    <div class="state-meta">
+                                        <span class="state-name">High Stress</span>
+                                        <span class="state-percentage" id="stateStressPct">15%</span>
+                                    </div>
+                                    <div class="state-bar-bg">
+                                        <div class="state-bar-fill red" id="stateStressBar" style="width: 15%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monthly flow description placeholder -->
+                            <p class="monthly-flow-subtitle" id="monthlyFlowDesc">
+                                You've reached your relaxation goals <strong>5 days</strong> this month. Keep it up!
+                            </p>
+                        </section>
+
+                        <!-- Live Session Card -->
+                        <section class="card live-session-card">
+                            <div class="live-avatars-row">
+                                <div class="avatars-overlap">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Friend 1" class="overlap-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Friend 2" class="overlap-avatar">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" alt="Friend 3" class="overlap-avatar">
+                                </div>
+                                <span class="live-badge">+42</span>
+                            </div>
+                            
+                            <p class="live-session-text">
+                                42 friends are currently meditating. Join the flow?
+                            </p>
+                            
+                            <button type="button" class="btn-live-session" id="startSessionBtn">
+                                Join Live Session
+                            </button>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.2 REMEDY DASHBOARD VIEW -->
+            <div id="remedyView" style="display: none;">
+                <div class="remedy-hero" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop');">
+                    <div class="remedy-hero-overlay"></div>
+                    <div class="remedy-hero-content">
+                        <span class="hero-tag">DAILY FOCUS</span>
+                        <h1 class="hero-title">Find Your Inner Stillness</h1>
+                        <p class="hero-desc">Embark on a guided journey through misty valleys and morning dew. Curated frequencies designed to lower cortisol and reset your nervous system.</p>
+                        <div class="hero-buttons">
+                            <button type="button" class="btn-begin-journey" id="btnBeginJourney"><i class="fa-solid fa-play"></i> BEGIN JOURNEY</button>
+                            <button type="button" class="btn-details">DETAILS</button>
+                        </div>
+                        <div class="hero-quote">
+                            "In the silence of the mind, the soul finds its symphony."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiet Your Mind section -->
+                <div class="quiet-mind-section">
+                    <h2 class="section-heading">Quiet Your Mind</h2>
+                    <p class="section-subheading">Select your intended mental state</p>
+                    
+                    <div class="quiet-mind-grid">
+                        <!-- Meditation Card -->
+                        <div class="quiet-mind-card" id="cardMeditation">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=300&auto=format&fit=crop" alt="Meditation Zen">
+                            </div>
+                            <div class="card-text">
+                                <h3>Meditation</h3>
+                                <p>Guided Zen sessions</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Deep Sleep Card -->
+                        <div class="quiet-mind-card" id="cardDeepSleep">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=300&auto=format&fit=crop" alt="Sleep lullabies">
+                            </div>
+                            <div class="card-text">
+                                <h3>Deep Sleep</h3>
+                                <p>Theta wave lullabies</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Deep Work Card -->
+                        <div class="quiet-mind-card" id="cardDeepWork">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=300&auto=format&fit=crop" alt="Work focus">
+                            </div>
+                            <div class="card-text">
+                                <h3>Deep Work</h3>
+                                <p>Binaural focus beats</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Relaxation Card -->
+                        <div class="quiet-mind-card" id="cardRelaxation">
+                            <div class="card-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=300&auto=format&fit=crop" alt="Relaxation mountain">
+                            </div>
+                            <div class="card-text">
+                                <h3>Relaxation</h3>
+                                <p>Nature soundscapes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom audio player -->
+                <div class="soundscape-player" id="soundscapePlayer">
+                    <div class="player-left">
+                        <span class="player-now-playing">NOW PLAYING</span>
+                        <h4 class="player-track-title">Evening Rain on Tin</h4>
+                    </div>
+                    <div class="player-center">
+                        <span class="time-elapsed" id="playerTimeElapsed">12:45</span>
+                        <div class="progress-bar-container" id="playerProgressBarContainer">
+                            <div class="player-progress-bg">
+                                <div class="player-progress-fill" id="playerProgressFill" style="width: 28.3%;"></div>
+                            </div>
+                        </div>
+                        <span class="time-total">45:00</span>
+                    </div>
+                    <div class="player-controls">
+                        <button class="player-btn"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="player-btn play-pause" id="playerPlayPauseBtn"><i class="fa-solid fa-circle-play"></i></button>
+                        <button class="player-btn"><i class="fa-solid fa-forward-step"></i></button>
+                        <div class="volume-control">
+                            <i class="fa-solid fa-volume-high"></i>
+                            <div class="volume-bar-bg">
+                                <div class="volume-bar-fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended section -->
+                <div class="recommended-section">
+                    <div class="recommended-header">
+                        <h2>Recommended for You</h2>
+                        <a href="#" class="view-all-link">VIEW ALL <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="recommended-grid">
+                        <div class="rec-card" id="recRain">
+                            <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=300&auto=format&fit=crop" alt="Rain Sound">
+                            <div class="rec-details">
+                                <h3>Evening Rain on Tin</h3>
+                                <p>Deep Sleep • 45 min</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rec-card" id="recAlpine">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=300&auto=format&fit=crop" alt="Alpine Echoes">
+                            <div class="rec-details">
+                                <h3>Alpine Echoes</h3>
+                                <p>Meditation • 60 min</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rec-card" id="recOcean">
+                            <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=300&auto=format&fit=crop" alt="Ocean Sound">
+                            <div class="rec-details">
+                                <h3>Ocean Breath</h3>
+                                <p>Relaxation • 30 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.3 BREATHING TIMER VIEW (FULLSCREEN OVERLAY CONTAINER) -->
+            <div id="timerView" class="breathing-timer-fullscreen" style="display: none;">
+                <header class="timer-header">
+                    <button type="button" class="btn-back-calendar" id="timerBackBtn">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Remedy
+                    </button>
+                    <span class="timer-app-title">Calmify AI</span>
+                </header>
+                
+                <div class="timer-sub-intro">
+                    <span class="intro-tag">Your Breath, Your Sanctuary</span>
+                    <h2 class="intro-desc">Find stillness in the rhythm of your own presence. Select your journey below.</h2>
+                </div>
+
+                <div class="timer-core-grid">
+                    <!-- Left: TECHNIQUE -->
+                    <div class="timer-col technique-col">
+                        <span class="col-title">TECHNIQUE</span>
+                        <div class="pill-list" id="timerTechList">
+                            <button class="timer-pill active" data-tech="box">
+                                <span>Box Breathing</span>
+                                <i class="fa-solid fa-circle-check"></i>
+                            </button>
+                            <button class="timer-pill" data-tech="478">
+                                <span>4-7-8 Relax</span>
+                            </button>
+                            <button class="timer-pill" data-tech="balanced">
+                                <span>Balanced</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Center: RING COUNTDOWN -->
+                    <div class="timer-col center-timer-col">
+                        <div class="breathing-timer-ring-wrapper">
+                            <div class="timer-ring-visual">
+                                <div class="timer-pulsing-glow" id="timerPulsingGlow"></div>
+                            </div>
+                            <div class="timer-text-overlay">
+                                <span class="timer-countdown" id="timerMinutesSeconds">10:00</span>
+                                <span class="timer-phase-status" id="timerPhaseStatus">READY</span>
+                            </div>
+                        </div>
+                        <button class="btn-timer-session-control" id="btnStartBreathingTimer">
+                            <i class="fa-solid fa-play"></i> Begin Session
+                        </button>
+                    </div>
+                    
+                    <!-- Right: DURATION -->
+                    <div class="timer-col duration-col">
+                        <span class="col-title">DURATION</span>
+                        <div class="pill-list" id="timerDurList">
+                            <button class="timer-pill" data-dur="300">5 Min</button>
+                            <button class="timer-pill active" data-dur="600">10 Min</button>
+                            <button class="timer-pill" data-dur="1200">20 Min</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timer-bottom-cards">
+                    <div class="focus-card">
+                        <i class="fa-solid fa-seedling card-icon"></i>
+                        <h4>Focus</h4>
+                        <p>Quiet the noise. Align your attention with the gentle anchor of your breath.</p>
+                    </div>
+                    <div class="focus-card">
+                        <i class="fa-solid fa-cloud card-icon"></i>
+                        <h4>Release</h4>
+                        <p>Let go of what no longer serves you with every deep, intentional exhale.</p>
+                    </div>
+                    <div class="focus-card">
+                        <i class="fa-solid fa-bolt card-icon"></i>
+                        <h4>Restore</h4>
+                        <p>Recharge your nervous system through the power of mindful oxygenation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="guidedMomentDesc" style="display: none;"></div>
+
+            <!-- 2.4 STRESS GRAPH VIEW -->
+            <div id="stressGraphView" style="display: none;">
+                <div class="stress-graph-container">
+                    <div class="stress-graph-header">
+                        <div class="header-info">
+                            <span class="view-tag">HISTORICAL DATA</span>
+                            <h2 class="view-title">Stress Level History</h2>
+                            <p class="view-desc">Monitor your biometric stress index calculated on Railway using heart rate, HRV, and temperature metrics.</p>
+                        </div>
+                        <button type="button" class="btn-download-graph" id="btnDownloadGraph">
+                            <i class="fa-solid fa-download"></i> Save Graph Image
+                        </button>
+                    </div>
+
+                    <div class="stress-graph-grid">
+                        <!-- Chart Card -->
+                        <section class="card chart-card">
+                            <div class="chart-container-wrapper">
+                                <canvas id="stressHistoryChart"></canvas>
+                            </div>
+                        </section>
+
+                        <!-- Stats Panel -->
+                        <section class="card stress-stats-card">
+                            <h3 class="card-title">Stress Index Analytics</h3>
+                            
+                            <div class="stress-metrics-grid">
+                                <div class="stress-metric-box">
+                                    <span class="metric-label">AVERAGE STRESS INDEX</span>
+                                    <span class="metric-value" id="avgStressIndex">0.0</span>
+                                    <span class="metric-status" id="avgStressStatus">Normal</span>
+                                </div>
+                                <div class="stress-metric-box">
+                                    <span class="metric-label">PEAK STRESS INDEX</span>
+                                    <span class="metric-value" id="peakStressIndex">0.0</span>
+                                    <span class="metric-status" id="peakStressStatus">Normal</span>
+                                </div>
+                                <div class="stress-metric-box">
+                                    <span class="metric-label">TOTAL LOGGED DAYS</span>
+                                    <span class="metric-value" id="totalLoggedDays">0</span>
+                                    <span class="metric-status">Entries Saved</span>
+                                </div>
+                            </div>
+
+                            <div class="stress-guide-box">
+                                <h4>Understanding Your Score</h4>
+                                <ul class="stress-guide-list">
+                                    <li><span class="status-dot green"></span> <strong>Low (&lt; 45):</strong> Calm and relaxed state.</li>
+                                    <li><span class="status-dot yellow"></span> <strong>Medium (45 - 70):</strong> Mild tension. Deep breathing recommended.</li>
+                                    <li><span class="status-dot red"></span> <strong>High (&gt;= 70):</strong> Significant physiological strain. Rest.</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.5 SYSTEM SETTINGS VIEW -->
+            <div id="settingsView" style="display: none;">
+                <div class="settings-layout">
+                    <!-- Left Sidebar Tabs -->
+                    <aside class="settings-sidebar-nav">
+                        <h3 class="settings-sidebar-title">System Settings</h3>
+                        <div class="settings-tab-buttons">
+                            <button type="button" class="settings-tab-btn active" id="btnSettingsConnectivity">
+                                <i class="fa-solid fa-wifi"></i> Connectivity
+                            </button>
+                            <button type="button" class="settings-tab-btn" id="btnSettingsEmergency">
+                                <i class="fa-solid fa-phone-flip"></i> Emergency Contacts
+                            </button>
+                        </div>
+                    </aside>
+
+                    <!-- Right Panel Content -->
+                    <div class="settings-panel-content">
+                        <!-- CONNECTIVITY PANEL -->
+                        <div id="settingsConnectivityPanel" class="settings-panel-card active">
+                            <div class="settings-panel-header">
+                                <h3 class="panel-title">Bluetooth & Wearable Connectivity</h3>
+                                <p class="panel-subtitle">Link your ESP32 bio-sensor to stream live heart-rate and stress metrics to your dashboard.</p>
+                            </div>
+
+                            <div class="settings-card-body">
+                                <!-- 1. Bluetooth Toggle Card -->
+                                <div class="sub-setting-card">
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <h4>Calmify Bluetooth Service</h4>
+                                            <p>Toggle the app's Bluetooth receiver interface. Required to scan for devices.</p>
+                                        </div>
+                                        <label class="switch-toggle">
+                                            <input type="checkbox" id="bluetoothSwitch">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="live-status-row" id="bluetoothStatusRow">
+                                        <span class="status-label">Bluetooth Status:</span>
+                                        <span class="status-pill status-off" id="bluetoothStatusPill">
+                                            <span class="pulse-dot"></span> <span id="bluetoothStatusText">OFF</span>
+                                        </span>
+                                    </div>
+                                    <div class="bluetooth-warning-banner" id="bluetoothWarningBanner" style="display: none;">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <span id="bluetoothWarningText">System Bluetooth is turned off. Please enable it in your OS settings to pair your device.</span>
+                                    </div>
+                                </div>
+
+                                <!-- 2. ESP32 Connection Card -->
+                                <div class="sub-setting-card disabled-opacity" id="espConnectionCard">
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <h4>ESP32 Wearable Device</h4>
+                                            <p>Scan, pair, and connect your active ESP32 stress-monitoring wristband.</p>
+                                        </div>
+                                        <button type="button" class="btn-settings-action" id="btnConnectESP" disabled>
+                                            <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="espSpinner"></i> Scan & Connect
+                                        </button>
+                                    </div>
+                                    <div class="live-status-row">
+                                        <span class="status-label">ESP32 Status:</span>
+                                        <span class="status-pill status-off" id="espStatusPill">
+                                            <span id="espStatusText">DISCONNECTED</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- 3. Live Data Stream Visualizer -->
+                                <div class="sub-setting-card visualizer-card disabled-opacity" id="espVisualizerCard">
+                                    <div class="visualizer-header">
+                                        <div class="setting-info">
+                                            <h4>Live Sensor Feed</h4>
+                                            <p id="streamStatusLabel">Stream inactive. Connect your ESP32 to start receiving biometric telemetry.</p>
+                                        </div>
+                                        <div class="sync-switch-wrapper" style="display: none;" id="syncToggleWrapper">
+                                            <span class="sync-label">Sync to Dashboard</span>
+                                            <label class="switch-toggle mini">
+                                                <input type="checkbox" id="syncHrvSwitch" checked>
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="canvas-container">
+                                        <canvas id="ecgCanvas"></canvas>
+                                    </div>
+
+                                    <div class="metrics-grid">
+                                        <div class="metric-item">
+                                            <span class="metric-label">HEART RATE</span>
+                                            <span class="metric-val" id="metricBPM">-- <span class="metric-unit">BPM</span></span>
+                                        </div>
+                                        <div class="metric-item">
+                                            <span class="metric-label">HR VARIABILITY (HRV)</span>
+                                            <span class="metric-val" id="metricHRV">-- <span class="metric-unit">ms</span></span>
+                                        </div>
+                                        <div class="metric-item">
+                                            <span class="metric-label">SIGNAL</span>
+                                            <span class="metric-val" id="metricSignal">--</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EMERGENCY CONTACTS PANEL -->
+                        <div id="settingsEmergencyPanel" class="settings-panel-card" style="display: none;">
+                            <div class="settings-panel-header">
+                                <h3 class="panel-title">Crisis & Emergency Contacts</h3>
+                                <p class="panel-subtitle">Configure contact numbers to alert automatically if extreme physical stress signs are registered by the bio-sensors.</p>
+                            </div>
+
+                            <div class="settings-card-body">
+                                <!-- Contact List -->
+                                <div class="sub-setting-card">
+                                    <h4>Active Contacts</h4>
+                                    <p class="contacts-desc">Manage the telephone numbers authorized to receive automated stress notifications.</p>
+                                    
+                                    <div class="emergency-contacts-list" id="emergencyContactsList">
+                                        <!-- Dynamically generated list -->
+                                    </div>
+                                </div>
+
+                                <!-- Add New Contact Form -->
+                                <div class="sub-setting-card">
+                                    <h4>Add Emergency Contact</h4>
+                                    <form class="settings-form" id="addContactForm">
+                                        <div class="form-row-split">
+                                            <div class="input-group">
+                                                <label class="form-label">Contact Name</label>
+                                                <div class="form-input-wrapper">
+                                                    <i class="fa-solid fa-user input-icon"></i>
+                                                    <input type="text" id="contactName" placeholder="Dr. Evelyn Thorne" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <label class="form-label">Phone Number</label>
+                                                <div class="form-input-wrapper">
+                                                    <i class="fa-solid fa-phone input-icon"></i>
+                                                    <input type="tel" id="contactNumber" placeholder="+1 (555) 123-4567" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn-settings-submit" id="btnAddContactSubmit">
+                                            <i class="fa-solid fa-plus"></i> Add Contact
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FOOTER BAR -->
+            <footer class="dashboard-footer">
+                <span class="footer-copy">© 2024 Calmify AI. Designed for intentional breathing.</span>
+                
+                <!-- Database status banner maps directly to dbStatus -->
+                <div class="db-status-banner" id="dbStatus">
+                    <span class="status-dot offline"></span>
+                    <span class="status-text">Server Synchronized</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Wellness Ethics</a>
+                </div>
+            </footer>
+        </main>
+
+        <!-- 3. INTERACTIVE BREATHING EXERCISE OVERLAY (GUIDED MOMENT MODAL) -->
+        <div class="breathing-modal" id="breathingModal">
+            <div class="breathing-modal-card">
+                <button class="close-modal-btn" id="closeBreathingBtn" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h3 class="modal-title">Horizon Breathing</h3>
+                <p class="modal-subtitle">Follow the expanding circle to regulate your heart rate and ease tension.</p>
+                
+                <div class="breathing-circle-wrapper">
+                    <div class="breathing-circle" id="breathingCircle"></div>
+                    <span class="breathing-instruction" id="breathingText">Prepare...</span>
+                </div>
+                
+                <div class="breathing-controls">
+                    <button class="btn-primary" id="breathingStartStopBtn">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Script File -->
+    <script src="js/app.js"></script>
+</body>
+</html>
