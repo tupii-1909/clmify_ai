@@ -1,0 +1,7 @@
+flask
+flask-cors
+pyserial
+requests
+matplotlib
+numpy
+pandas
